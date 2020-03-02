@@ -66,6 +66,9 @@ alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
 alias gitv='git log --graph --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+alias home='cd ~'
+alias root='cd /'
+
 
 
 # Alias definitions.
