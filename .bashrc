@@ -3,6 +3,7 @@
 # - https://github.com/carmargut/dotfiles
 # - carmargut@gmail.com
 
+export PLATFORM=$(uname -s)
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -79,8 +80,11 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -alF'
+# Aliases
+# --------------------------------------------------------------------
+
+alias ..='cd ..'
+alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
 
