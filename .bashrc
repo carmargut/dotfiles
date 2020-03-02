@@ -65,6 +65,8 @@ alias ..='cd ..'
 alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
+alias gitv='git log --graph --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
