@@ -17,12 +17,9 @@ core-linux:
 	apt-get update
 	apt-get upgrade -y
 	apt-get dist-upgrade -f
-
+	sudo apt install stow
 
 zsh:
 	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 	chsh -s `which zsh`
-
-
-
+	stow zsh
