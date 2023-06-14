@@ -22,7 +22,7 @@ set wildignore+=*.swp,~*
 set wildignore+=*.zip,*.tar
 
 set t_Co=256
-colorscheme molokai
+colorscheme slate
 
 " Tab sanity
 set expandtab
