@@ -24,7 +24,7 @@ You can manually clone the repository into the desired location.
 
 
 
-
+## Configuration
 
 Once the repository is installed, run the following commands to create symbolic links for the zsh and vim configurations:
 
@@ -51,27 +51,39 @@ mv .vimrc .vimrc_old # restore .vimrc file
 
 
 ## Updated files
-To automatically update the dotfiles on a hourly basis, follow these steps:
+
+To automatically update and push the dotfiles on an hourly basis, follow these steps:
 
 
-Make the `pull.sh` script executable:
+Make the `pull.sh` and `push.sh` script executable:
 
 ```bash
 chmod +x pull.sh 
+chmod +x push.sh
+
 ```
 Edit your crontab:
 ```bash
 crontab -e
 ```
 
-Add the following line at the end of the crontab:
+Add the following lines at the end of the crontab:
 ```bash
 0 * * * * ~/.dotfiles/pull.sh >> ~/.dotfiles/output.txt 2>&1
+0 * * * * ~/.dotfiles/push.sh >> ~/.dotfiles/output.txt 2>&1
 ```
-This will execute the pull.sh script every hour (at the 0th minute) and redirect the output to ~/.dotfiles/output.txt.
+These lines will execute the `pull.sh` script every hour (at the 0th minute) to update the dotfiles and the `push.sh` script to push any changes. The output will be redirected to `~/.dotfiles/output.txt`.
 
-By following these steps, your dotfiles will be updated automatically on a hourly basis, and the output will be logged in the output.txt file.
+By following these steps, your dotfiles will be updated and pushed automatically on an hourly basis, and the output will be logged in the `output.txt` file.
 
 
 
+## macOS Customizations
+
+To configure macOS settings to preferred defaults, execute the following script:
+
+```bash
+./set-mac-defaults.sh
+```
+The script includes configurations such as enabling AirDrop over every interface, setting Finder preferences, configuring the Dock and hot corners, and more. Note that some changes may require a logout or restart to take effect.
 
