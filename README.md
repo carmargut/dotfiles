@@ -68,9 +68,9 @@ crontab -e
 
 Add the following line at the end of the crontab:
 ```bash
-0 * * * * ~/.dotfiles/pull.sh >> ~/.dotfiles/output.txt 2>&1
+0 * * * * ~/.dotfiles/pull.sh >> ~/.dotfiles/output.txt 2>&1 && tail -n 100 ~/.dotfiles/output.txt > tmp.txt && mv tmp.txt ~/.dotfiles/output.txt
 ```
-This will execute the `pull.sh` script every hour (at the 0th minute) and redirect the output to `~/.dotfiles/output.txt` (for testing purposes).
+This will execute the `pull.sh` script every hour (at the 0th minute) and redirect the output to `~/.dotfiles/output.txt` (for log purposes. It's limited to the last 100 lines).
 
 By following these steps, your dotfiles will be updated automatically on an hourly basis, and the output will be logged in the `output.txt` file.
 
