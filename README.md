@@ -38,6 +38,10 @@ ln -s .dotfiles/.zshrc
 # Creates a symbolic link for vim config
 mv .vimrc .vimrc_old
 ln -s .dotfiles/.vimrc
+
+# Creates a symbolic link for git config
+mv .gitconfig .gitconfig_old
+ln -s .dotfiles/.gitconfig
 ```
 
 If you ever decide to remove this project, you can restore your original configuration files using the following commands:
@@ -46,6 +50,7 @@ If you ever decide to remove this project, you can restore your original configu
 cd ~ 
 mv .zshrc .zshrc_old # restore .zshrc file
 mv .vimrc .vimrc_old # restore .vimrc file
+mv .gitconfig .gitconfig_old # restore .gitconfig file
 
 ```
 
