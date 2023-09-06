@@ -87,4 +87,9 @@ defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock wvous-tr-corner -int 2
 defaults write com.apple.dock wvous-tr-modifier -int 0
 
+# Top left screen corner → Mission Control
+defaults write com.apple.dock wvous-tl-corner -int 2
+defaults write com.apple.dock wvous-tl-modifier -int 0
+
+
 echo "Done. Note that some of these changes require a logout/restart to take effect."
