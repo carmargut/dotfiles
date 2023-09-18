@@ -117,7 +117,7 @@ source $ZSH/oh-my-zsh.sh
 # --------------------------------------------------------------------
 
 alias ..='cd ..'
-alias ll='ls -alFh'
+alias ll='ls -lathr'
 alias la='ls -A'
 alias l='ls -CF'
 alias gitv='git log --graph --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
