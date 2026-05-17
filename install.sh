@@ -26,7 +26,7 @@ install_deps_macos() {
     eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
 
-  brew install zsh starship zsh-autosuggestions
+  brew install zsh starship zsh-autosuggestions zsh-completions zsh-syntax-highlighting
 
   if ! is_executable nvm; then
     brew install nvm
@@ -35,7 +35,7 @@ install_deps_macos() {
 
 install_deps_ubuntu() {
   sudo apt update
-  sudo apt install -y zsh curl
+  sudo apt install -y zsh curl zsh-autosuggestions zsh-syntax-highlighting zsh-completions
 
   if ! is_executable starship; then
     curl -sS https://starship.rs/install.sh | sh -s -- --yes
