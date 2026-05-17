@@ -1,92 +1,35 @@
 # dotfiles
 
-
 ## Install
-To install these dotfiles, you can use the following methods:
-
-
-
-### Method 1: Using curl
-Copy code
-```bash
-bash -c "`curl -fsSL https://raw.githubusercontent.com/carmargut/dotfiles/master/install.sh`"
-```
-This command will clone the repository to `~/.dotfiles` using `git`, or download it using `curl` or `wget`.
-
-### Method 2: Manual cloning
-
-
-Copy code
-```bash
-git clone https://github.com/carmargut/dotfiles.git ~/.dotfiles
-```
-You can manually clone the repository into the desired location.
-
-
-
-## Configuration
-
-Once the repository is installed, run the following commands to create symbolic links for the zsh and vim configurations:
 
 ```bash
-cd ~ # goes to home folder
-
-# Creates a symbolic link for zsh config
-mv .zshrc .zshrc_old
-ln -s .dotfiles/.zshrc
-
-# Creates a symbolic link for vim config
-mv .vimrc .vimrc_old
-ln -s .dotfiles/.vimrc
-
-# Creates a symbolic link for git config
-mv .gitconfig .gitconfig_old
-ln -s .dotfiles/.gitconfig
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/carmargut/dotfiles/master/install.sh)"
 ```
 
-If you ever decide to remove this project, you can restore your original configuration files using the following commands:
+The script detects your OS and:
+- **macOS**: installs dependencies via Homebrew (zsh, starship, nvm)
+- **Ubuntu**: installs via apt + official starship installer + nvm
+- Symlinks `.zshrc`, `.vimrc`, `.gitconfig` and `starship.toml` to your home directory
+- Sets zsh as the default shell
+
+## Auto-update
+
+To keep dotfiles in sync automatically, add a cron job:
 
 ```bash
-cd ~ 
-mv .zshrc .zshrc_old # restore .zshrc file
-mv .vimrc .vimrc_old # restore .vimrc file
-mv .gitconfig .gitconfig_old # restore .gitconfig file
-
-```
-
-
-## Updated files
-
-To automatically update the dotfiles on an hourly basis, follow these steps:
-
-Make the `pull.sh` script executable:
-
-
-```bash
-chmod +x pull.sh 
-
-```
-Edit your crontab:
-```bash
+chmod +x ~/.dotfiles/pull.sh
 crontab -e
 ```
 
-Add the following line at the end of the crontab:
-```bash
-0 * * * * ~/.dotfiles/pull.sh >> ~/.dotfiles/output.txt 2>&1 && tail -n 100 ~/.dotfiles/output.txt > tmp.txt && mv tmp.txt ~/.dotfiles/output.txt
+Add this line:
 ```
-This will execute the `pull.sh` script every hour (at the 0th minute) and redirect the output to `~/.dotfiles/output.txt` (for log purposes. It's limited to the last 100 lines).
+0 * * * * ~/.dotfiles/pull.sh >> ~/.dotfiles/output.txt 2>&1 && tail -n 100 ~/.dotfiles/output.txt > /tmp/dots.txt && mv /tmp/dots.txt ~/.dotfiles/output.txt
+```
 
-By following these steps, your dotfiles will be updated automatically on an hourly basis, and the output will be logged in the `output.txt` file.
-
-
-
-## macOS Customizations
-
-To configure macOS settings to preferred defaults, execute the following script:
+## macOS customizations
 
 ```bash
 ./set-mac-defaults.sh
 ```
-The script includes configurations such as enabling AirDrop over every interface, setting Finder preferences, configuring the Dock and hot corners, and more. Note that some changes may require a logout or restart to take effect.
 
+Configures Finder, Dock, hot corners, AirDrop, and other system preferences. Some changes require a logout to take effect.
