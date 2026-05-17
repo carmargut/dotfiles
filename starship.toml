@@ -12,8 +12,8 @@ $line_break\
 $character"""
 
 [directory]
-truncation_length = 4
-truncate_to_repo = true
+truncation_length = 10
+home_symbol = "~"
 
 [git_branch]
 symbol = " "

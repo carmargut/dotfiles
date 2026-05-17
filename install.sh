@@ -26,7 +26,7 @@ install_deps_macos() {
     eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
 
-  brew install zsh starship
+  brew install zsh starship zsh-autosuggestions
 
   if ! is_executable nvm; then
     brew install nvm

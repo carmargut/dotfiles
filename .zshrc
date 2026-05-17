@@ -24,6 +24,12 @@ export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
 
+# Plugins
+# --------------------------------------------------------------------
+
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+
 # Prompt
 # --------------------------------------------------------------------
 
