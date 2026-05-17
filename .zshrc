@@ -36,11 +36,13 @@ bindkey "\e[B" history-beginning-search-forward
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   _ZSH_PLUGIN_DIR=$(brew --prefix)/share
+  _ZSH_COMPLETIONS_DIR="$_ZSH_PLUGIN_DIR/zsh-completions"
 else
   _ZSH_PLUGIN_DIR=/usr/share
+  _ZSH_COMPLETIONS_DIR=/usr/local/share/zsh-completions
 fi
 
-fpath=("$_ZSH_PLUGIN_DIR/zsh-completions" $fpath)
+fpath=("$_ZSH_COMPLETIONS_DIR" $fpath)
 autoload -U compinit && compinit
 
 source "$_ZSH_PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
