@@ -9,7 +9,7 @@ alias gitv='git log --graph --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 alias home='cd ~'
 alias root='cd /'
 alias myip="curl https://icanhazip.com"
-alias ls='ls --color=auto --group-directories-first'
+alias ls='ls --color=auto'
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
