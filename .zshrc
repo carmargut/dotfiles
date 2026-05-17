@@ -19,9 +19,14 @@ alias egrep='egrep --color=auto'
 # Exports
 # --------------------------------------------------------------------
 
-export PATH=/opt/homebrew/bin:$PATH
 export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export PATH=/opt/homebrew/bin:$PATH
+  source $(brew --prefix nvm)/nvm.sh
+else
+  [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+fi
 
 
 # History search
