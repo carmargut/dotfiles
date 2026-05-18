@@ -1,3 +1,6 @@
+filetype plugin indent on
+syntax on
+
 set ttyfast
 set showmode
 set showcmd
