@@ -2,7 +2,6 @@
 # --------------------------------------------------------------------
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 export NVM_DIR="$HOME/.nvm"
-export STARSHIP_CONFIG="$HOME/.dotfiles/starship.toml"
 
 # 2. Cargar NVM de forma perezosa (Evita que la terminal se quede colgada)
 # --------------------------------------------------------------------
