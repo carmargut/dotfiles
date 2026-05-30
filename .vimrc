@@ -34,7 +34,7 @@ set shiftwidth=4
 
 " Show hidden characters, tabs, trailing whitespace
 set list
-set listchars=tab:>\ ,trail:·,nbsp:·
+set listchars=tab:>\ ,trail:.,nbsp:_
 
 " Remap escape
 inoremap jk <Esc>
